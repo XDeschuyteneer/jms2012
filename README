@@ -1,3 +1,34 @@
-This is the content that will be showed at the jms 2012.
+****************
+*   JMS 2012   *
+****************
 
-It'll be about page rank
+Contenu de la présentation du jms 2012 sur le thème du page rank
+
+Contenu
+=======
+
+html/		  sample html code
+code/parser.py    parser html, calculateur de page rank et générateur xml
+presentation/	  contenu de la présentation beamer
+
+Code
+====
+
+Utilisation:
+
+  "./parser.py" parse toutes les pages html du dossier html
+  "./parser.py repertoire" parse toutes les pages html contenues dans
+  	       		   repertoires
+
+Presentation
+============
+
+Dépendence:
+  https://forge.umons.ac.be/redmine/projects/beamer-umons/wiki
+
+Compilation:
+  make	      pour compiler la présentation et générer
+  	      la table des matières
+  make show   pour afficher la presentation avec xpdf
+  make clean  pour nettoyer le repertoire avec les fichiers générés lors
+       	      de la compilation
