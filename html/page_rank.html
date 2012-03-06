@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Rank</title>
+    <h1>Page Rank</h1>
+  </head>
+  <body>
+
+<script type="text/javascript">
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET","pr.xml",false);
+    xmlhttp.send();
+    xmlDoc=xmlhttp.responseXML; 
+
+    document.write("<table border='1'>");
+    var x = xmlDoc.getElementsByTagName("site");
+    for (i = 0; i < x.length; i++) { 
+     document.write("<tr><td>");
+     document.write(x[i].getElementsByTagName("nom")[0].childNodes[0].nodeValue);
+     document.write("</td><td>");
+     document.write(x[i].getElementsByTagName("page_rank")[0].childNodes[0].nodeValue);
+     document.write("</td></tr>");
+    }
+    document.write("</table>");
+</script>
+
+</body>
+</html>

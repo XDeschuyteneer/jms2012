@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet href="rank.xsl" type="text/xsl"?>
+<pr>
+  <site>
+    <nom>page_rank.html</nom>
+    <page_rank>pr: 0.000</page_rank>
+  </site>
+  <site>
+    <nom>page2.html</nom>
+    <page_rank>pr: 0.139</page_rank>
+  </site>
+  <site>
+    <nom>page4.html</nom>
+    <page_rank>pr: 0.139</page_rank>
+  </site>
+  <site>
+    <nom>page3.html</nom>
+    <page_rank>pr: 0.222</page_rank>
+  </site>
+  <site>
+    <nom>page5.html</nom>
+    <page_rank>pr: 0.083</page_rank>
+  </site>
+  <site>
+    <nom>page1.html</nom>
+    <page_rank>pr: 0.083</page_rank>
+  </site>
+</pr>
