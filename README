@@ -11,15 +11,6 @@ html/		  sample html code
 code/parser.py    parser html, calculateur de page rank et générateur xml
 presentation/	  contenu de la présentation beamer
 
-Code
-====
-
-Utilisation:
-
-  "./parser.py" parse toutes les pages html du dossier html
-  "./parser.py repertoire" parse toutes les pages html contenues dans
-  	       		   repertoires
-
 Presentation
 ============
 
