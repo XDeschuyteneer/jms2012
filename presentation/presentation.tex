@@ -10,7 +10,7 @@
 \usetheme[navigation]{UMONS}
 
 \title{Est-il possible de duper Google ?}
-\subtitle{(JMS 2012)}
+\subtitle{JMS 2012}
 \author[X.~Deschuyteneer et H.~Mélot]{X. Deschuyteneer et H. Mélot}
 \institute[]{%
   Institut d'informatique\\
@@ -67,12 +67,12 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Comment Google trouve toute ces pages?}
+  \frametitle{Comment Google trouve toutes ces pages?}
 
   
   \begin{block}{Avant}
     Le web était très petit, recenser et classer les pages pouvait
-    donc être fait à la page.
+    donc être fait à la main.
   \end{block}
   
   \pause
@@ -88,17 +88,17 @@
 
 
 \begin{frame}
-  \frametitle{Contexte: Comment classer les pages?}
+  \frametitle{Comment classer les pages?}
   
   Pour classer les pages internet, il faut prendre en compte plusieurs
   choses:\\
   
   \begin{itemize}
-    \item popularité (trafic)
+    \item la popularité (trafic);
       \pause
-    \item sites de références (gouvernement, Le Monde, etc.)
+    \item les sites de références (gouvernement, Le Monde, etc.);
       \pause
-    \item le contenu
+    \item le contenu;
       \pause
     \item et la suite?
   \end{itemize}
@@ -185,7 +185,7 @@
       \begin{minipage}[t]{0.65\linewidth}
         \pause
         \begin{block}{Question}
-          Et ces pages-ci, comment les classer?
+          Comment classer les pages ici?
         \end{block}
         \end{minipage}
     \end{column}
@@ -228,7 +228,7 @@
       \begin{minipage}[t]{0.65\linewidth}
         \pause
         \begin{block}{Question}
-          Quel serait le classement maintenant?
+          Quel serait le classement dans ce cas?
         \end{block}
         \end{minipage}
     \end{column}
@@ -261,14 +261,14 @@
 
   \begin{block}{Contrainte}
     On veut imposer $0$ $<$ $PR(x)$ $<$ $1$.\\
-    On prend donc comme $PR(x)$ par défaut $\frac{1}{nbr\ pages}$ 
+    Par défaut, on prend $PR(x)$ = $\frac{1}{nbr\ pages}$.
   \end{block}
 \end{frame}
 
 \subsection{Exemple}
 
 \begin{frame}
-  \frametitle{Notation: Exemple}
+  \frametitle{Exemple}
 
     \begin{columns}
     \begin{column}[l]{0.05\linewidth}
@@ -303,15 +303,16 @@
         \pause
         \begin{block}{Réponse}
           $PR(A)$ =\\
-          $\frac{PR(B)}{L(B)} + \frac{PR(C)}{L(C)} + \frac{PR(D)}{L(D)}$\\
-          = $\frac{0.25}{2} + \frac{0.25}{1} + \frac{0.25}{3}$ = $0.125$
+          \[\frac{PR(B)}{L(B)} + \frac{PR(C)}{L(C)} + \frac{PR(D)}{L(D)}\]\\
+          \[= \frac{0.25}{2} + \frac{0.25}{1} + \frac{0.25}{3}\] =
+          $0.125$
         \end{block}
         \end{minipage}
     \end{column}
   \end{columns}
 \end{frame}
 
-\section{Surfer aléatoire}
+\section{Surfeur aléatoire}
 
 \begin{frame}
   \tableofcontents[currentsection,subsectionstyle=hide]
@@ -323,11 +324,11 @@
   Pour l'instant nous n'avons pris en compte que des faits:\\
   
   \begin{itemize}
-    \item nombre de page
+    \item le nombre de pages;
       \pause
-    \item nombre de lien entrant
+    \item le nombre de liens entrants;
       \pause
-    \item nombre de lien sortant
+    \item le nombre de liens sortants.
   \end{itemize}
 
 \end{frame}
@@ -336,11 +337,15 @@
   \frametitle{Principe}
 
   \begin{block}{Damping factor}
-    On va prendre en compte 2 faits courant sur le web, la probabilité
-    de cliquer sur un lien pour arriver sur une autre page, noté $d$ et
-    la probabilité d'arriver sur une page sans avoir suivit de lien (ie
-    $\frac{1 - d}{N}$ avec $N$ le nombre de pages). Des études ont
-    montrés qu'une bonne approximation de $d$ était $85\%$.
+    On va prendre en compte 2 faits courant sur le web:\\
+    \begin{itemize}
+    \item la probabilité de cliquer sur un lien pour arriver sur une
+      autre page, notée $d$;
+    \item la probabilité d'arriver sur une page sans avoir suivi
+      de lien (i.e. $\frac{1 - d}{N}$ avec $N$ le nombre de pages). Des
+      études ont montré qu'une bonne approximation de $d$ était
+      $85\%$.
+    \end{itemize}
   \end{block}
 \end{frame}
 
@@ -391,11 +396,11 @@
         Sous forme de système:\\
         \[ \left \{
           \begin{array}{ c @{ = } l }
-            p_1 & \frac{p_4}{2}\\
-            p_2 & \frac{p_1}{2} + \frac{p_5}{3}\\
-            p_3 & \frac{p_2}{2} + \frac{p_4}{2} + \frac{p_5}{3}\\
-            p_4 & \frac{p_3}{2} + \frac{p_5}{3}\\
-            p_5 & \frac{p_3}{2}\\
+            P_1 & \frac{P_4}{2}\\
+            P_2 & \frac{P_1}{2} + \frac{P_5}{3}\\
+            P_3 & \frac{P_2}{2} + \frac{P_4}{2} + \frac{P_5}{3}\\
+            P_4 & \frac{P_3}{2} + \frac{P_5}{3}\\
+            P_5 & \frac{P_3}{2}\\
           \end{array}
         \right. \]
         \end{minipage}
@@ -409,7 +414,7 @@
 \begin{frame}
   \frametitle{Modélisation (3/3)}
   
-  Ce système peut être vu sous forme de matrice:\\
+  Ce système peut s'écrire sous forme matricielle:\\
   \begin{columns}
 
     \begin{column}[l]{0.3\linewidth}
@@ -437,11 +442,11 @@
       \begin{minipage}{0.05\linewidth}
         \[ \left(
           \begin{array}{ c }
-            s_1 \\
-            s_2 \\
-            s_3 \\
-            s_4 \\
-            s_5
+            P_1 \\
+            P_2 \\
+            P_3 \\
+            P_4 \\
+            P_5
           \end{array} \right)
         \]
       \end{minipage}
@@ -457,36 +462,38 @@
       \begin{minipage}{0.3\linewidth}
         \[ \left(
           \begin{array}{ c }
-            s_1 \\
-            s_2 \\
-            s_3 \\
-            s_4 \\
-            s_5
+            P_1 \\
+            P_2 \\
+            P_3 \\
+            P_4 \\
+            P_5
           \end{array} \right)
         \]
       \end{minipage}
     \end{column}
 
   \end{columns}
-  
+  \ \\
+  Notons $M$ la matrice des coefficients.
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Résumé}
   
-  Ce que nous avons vu:
+  Nous avons vu:
   
   \begin{enumerate}
-    \item page rank basé sur le nombre de lien pointant vers une page
-      \pause
-    \item pondéré par le nombre de lien sortant
-      \pause
-    \item vision récursive
-      \pause
-    \item introduction du damping factor
-      \pause
-    \item vision matricielle
+  \item le page rank basé sur le nombre de liens pointant vers une
+    page; 
+    \pause
+  \item celui-ci est pondéré par le nombre de liens sortants;
+    \pause
+  \item une vision itérative du calcul du page rank;
+    \pause
+  \item l'introduction du damping factor;
+    \pause
+  \item une vision matricielle du calcul du page rank.
   \end{enumerate}
 
 \end{frame}
@@ -497,16 +504,18 @@
   \frametitle{Algorithme}
   \frametitle{Formule}
   \begin{block}{Brin et Page (1998)}
-    \[PR(i) = \frac{1 - d}{N} + d \sum_{j=1}^i {\frac{PR(j)}{l_j}}\]
+    \[PR(i) = \frac{1 - d}{N} + d \sum_{j=1}^i {\frac{PR(j)}{L(j)}}\]
   \end{block}
 
-  Cette formule du PR donne certaines propriétés à la matrice vue
-  précédemment. Le système possède des propriétés très interressantes:\\\ \\
+  Cette formule du PR donne certaines propriétés à la matrice $M$ vue
+  précédemment. Le système associé possède des propriétés
+  intéressantes:\\
   \begin{itemize}
-    \item possède une solution unique
-    \item la somme des PR vaut 1
-    \item résoudre le système peut être ramené à calculer $M^n$
-    \item convergeance très rapide (+/- 100 itérations pour tout le web)
+    \item il a une solution unique;
+    \item la somme des PR vaut 1;
+    \item la résolution du système se ramène au calcul de $M^n$;
+    \item la convergence de $M^n$ est très rapide (+/- 100 itérations
+      pour tout le web).
   \end{itemize}
 
 \end{frame}
